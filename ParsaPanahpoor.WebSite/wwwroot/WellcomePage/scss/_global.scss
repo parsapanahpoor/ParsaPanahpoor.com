@@ -1,0 +1,131 @@
+html, body {
+    height: 100%;
+    min-height: 100%;
+    font-family: 'Dosis', Arial, Sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+   font-family: $serif-font;
+}
+
+@include media-breakpoint-down(sm) {
+h1 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 1.5rem;
+}
+.display-3 {
+    font-size: 3rem;
+    }
+}
+
+a {
+	color: $brand-primary;
+	text-decoration:none;
+	transition: all 0.3s ease;
+	&:hover, &:focus, &:active {
+		color: darken($brand-primary, 30%);
+		text-decoration:none;
+	}
+} 
+
+.link-muted {
+	color: $gray;
+}
+.text-light {
+    color:rgba($white,0.7); 
+}
+.link-reverse {
+	color:$white;
+	&:hover {
+		color:$white; 
+		opacity: 0.7;
+	}
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.my-md {
+    margin-top: 2.5em !important;
+    margin-bottom: 2.5em !important;
+}
+
+
+.my-lg {
+    margin-top: 5em !important;
+    margin-bottom: 5em !important;
+}
+
+.py-lg {
+    padding-top: 5em !important;
+    padding-bottom: 5em !important;
+}
+
+.mt-lg {
+    margin-top: 5em !important; 
+}
+
+.mb-lg { 
+    margin-bottom: 5em !important;
+}
+
+.mb-4 {
+    margin-bottom: 2rem!important;
+}
+
+.display-5 {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.bg-light {
+    background-color: $gray-lightest;
+}
+
+.bg-white {
+    background-color: $white !important;
+}
+
+.bg-primary {
+    background-color: $brand-primary !important;
+}
+
+.light-text {
+    color: darken($gray-lighter, 20%);
+}
+
+.form-control::placeholder {
+    color: $gray-light;
+    opacity: 0.5;
+}
+
+.form-control::-webkit-input-placeholder {
+    color: $gray-light;
+    opacity: 0.5;
+}
+
+/*FONT*/
+
+.sans-serif-font {
+	font-family: $sans-serif-font !important;
+}
+
+
+/*-----------------------------------
+ * Section
+ *-----------------------------------*/
+
+.section {
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+.section-title {
+    margin: 2em auto;
+}
+
+ 

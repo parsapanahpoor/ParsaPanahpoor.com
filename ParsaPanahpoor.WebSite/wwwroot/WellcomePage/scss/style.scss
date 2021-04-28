@@ -1,0 +1,1007 @@
+/* ------------------------------------------------
+
+Page    : Start.ly CSS
+Version : 1.0
+Author  : Surjith S M
+URI     : http://themeforest.net/user/surjithctly
+
+TABLE OF CONTENTS
+-----------------
+
+1. Header
+2. navbar
+3. One Page
+4. Cards
+5. Portfolio
+6. Video
+7. Team
+8. Contact
+9. Footer
+
+Copyright © All rights Reserved
+Surjith S M / @surjithctly
+
+-------------------------------------------------- */
+
+@import 'variables';
+@import 'utilities/breakpoints';
+@import 'global';
+@import 'components/buttons';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-----------------------------------
+ * Wrappers
+ *-----------------------------------*/
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    &.overlay:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba($black, 0.3);
+    }
+}
+
+.body-padding {
+    margin: 30px;
+    height: calc(100% - 60px);
+    min-height: calc(100% - 60px);
+    @include media-breakpoint-down(sm) {
+        margin: 15px;
+        height: calc(100% - 30px);
+        min-height: calc(100% - 30px);
+    }
+}
+
+.bg-one {
+    background-image: url('../images/bg-one.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.bg-minimal {
+    background-image: url('../images/minimal.jpg');
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: cover;
+}
+
+.content-section {
+    height: 100%;
+    margin-right: 80px;
+    @include media-breakpoint-down(sm) {
+        margin-right: 0;
+    }
+}
+
+.center-content {
+    text-align: center;
+    &.text-light {
+        color: $white;
+    }
+    .lead {
+        margin: 0 auto;
+        max-width: 500px;
+    }
+}
+
+.padding {
+    padding: 35px;
+}
+
+.animation {
+    height: 100%;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+/*-----------------------------------
+ * Sidebar
+ *-----------------------------------*/
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 2;
+    &.sidebar-dark {
+        background-color: rgba($black, 0.3);
+    }
+    &.sidebar-light {
+        background-color: transparent;
+    }
+    @include media-breakpoint-down(sm) {
+        &.sidebar-dark,
+        &.sidebar-light {
+            background-color: transparent;
+        }
+    }
+}
+
+.hamburger-menu {
+    width: 80px;
+    height: 50px;
+    padding: 17px 25px;
+    margin: 10px auto;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+}
+
+.hamburger {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hamburger-line {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background-color: $white;
+    transition: all .3s ease;
+    .sidebar-light & {
+        background-color: $black;
+    }
+}
+
+.hamburger-line-1 {
+    top: 0;
+    width: 60%;
+}
+
+.hamburger-line-2,
+.hamburger-line-3 {
+    top: 0;
+    bottom: 0;
+    margin: auto
+}
+
+.hamburger-line-4 {
+    bottom: -1px;
+    width: 80%
+}
+
+.sidebar-open .hamburger-line-1,
+.sidebar-open .hamburger-line-4 {
+    transform: scaleX(0)
+}
+
+.sidebar-open .hamburger-line-2 {
+    transform: rotate(45deg)
+}
+
+.sidebar-open .hamburger-line-3 {
+    transform: rotate(-45deg)
+}
+
+.social-links {
+    margin-bottom: 50px;
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    @include media-breakpoint-down(sm) {
+        display: none;
+    }
+}
+
+.social-links a {
+    font-family: $condensed-font;
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    font-size: 13px;
+    letter-spacing: 5px;
+    transition: color .3s ease;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: rgba($white, 0.5);
+    &:hover,
+    &:focus {
+        color: $white;
+    }
+    .sidebar-light & {
+        color: rgba($black, 0.5);
+        &:hover,
+        &:focus {
+            color: $black;
+        }
+    }
+}
+
+[class^='vline'] {
+    width: 1px;
+    height: 100%;
+    background: rgba($white, 0.2);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    transform: scaleY(0);
+    transform-origin: top left;
+    animation-name: lineanim;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(.785, .135, .15, .86);
+    animation-duration: 3s;
+    .light-theme & {
+        background: rgba($black, 0.1);
+    }
+}
+
+.vline-1 {
+    left: 20%;
+    animation-delay: 1s;
+}
+
+.vline-2 {
+    left: 40%;
+    animation-delay: 0s;
+}
+
+.vline-3 {
+    left: 60%;
+    animation-delay: 2s;
+}
+
+.vline-4 {
+    left: 80%;
+    animation-delay: 1.5s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-----------------------------------
+ * Content
+ *-----------------------------------*/
+
+.fullscreen-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: all 0.5s cubic-bezier(.785, .135, .15, .86);
+    .sidebar-open & {
+        transform: translateX(0);
+    }
+    &.dark-bg {
+        background: $black;
+        color: $white;
+        a:not(.btn) {
+            color: $white;
+            &:hover,
+            &:focus {
+                color: rgba($white, 0.7);
+            }
+        }
+    }
+    &.light-bg {
+        background: $white;
+        color: $black;
+        a:not(.btn) {
+            color: $black;
+            &:hover,
+            &:focus {
+                color: rgba($black, 0.7);
+            }
+        }
+    }
+    @include media-breakpoint-only(lg) {
+        padding: 0 50px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Feature Block
+ * ------------- */
+
+.feature-block {
+    text-align: center;
+    margin: 2em auto;
+    i {
+        margin-bottom: 0.3em;
+    }
+    p {
+        margin-top: 1em;
+        .dark-bg & {
+            color: rgba($white, 0.8);
+        }
+        .light-bg & {
+            color: rgba($black, 0.8);
+        }
+    }
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 4em;
+    .section-heading {
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    p {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+.team-block {
+    text-align: center;
+    margin-bottom: 3em;
+    p {
+        .dark-bg & {
+            color: rgba($white, 0.8);
+        }
+        .light-bg & {
+            color: rgba($black, 0.8);
+        }
+    }
+    >.animation {
+        display: inline-block;
+    }
+}
+
+
+
+
+
+
+
+
+/* Slick Slider
+ * ------------- */
+
+.slick-slide .img-holder {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+
+
+
+
+
+
+/* Countdown Timer
+ * --------------- */
+
+.countdown-wrap {
+    margin: 40px 0 20px 0;
+    p {
+        font-size: 22px;
+        margin-bottom: 0;
+    }
+    @media (max-width: 500px) {
+        margin: 10px 0;
+    }
+}
+
+.countdown {
+    padding: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    list-style: none;
+    li {
+        display: inline-block;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 20px 20px 15px;
+        margin-right: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        list-style: none;
+        min-width: 150px;
+        .light-theme & {
+            background: transparent;
+        }
+        @media (max-width: 767px) {
+            min-width: 170px;
+        }
+        @media (max-width: 500px) {
+            min-width: 110px;
+        }
+        @media (max-width: 500px) {
+            font-size: 30px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        span {
+            font-size: 70px;
+            font-weight: bold;
+            color: #FFF;
+            line-height: 1.0;
+            position: relative; //font-family: 'Helvetica', Arial, sans-serif;
+            .light-theme & {
+                color: $black;
+            }
+            @media (max-width: 992px) {
+                font-size: 60px;
+            }
+            @media (max-width: 767px) {
+                font-size: 40px;
+            }
+            @media (max-width: 500px) {
+                font-size: 30px;
+            }
+        }
+        p {
+            color: rgba(255, 255, 255, 0.55);
+            text-transform: uppercase;
+            font-size: 15px;
+            .light-theme & {
+                color: rgba($black, 0.55);
+            }
+        }
+    }
+}
+
+.countdown_title {
+    margin: 20px 0;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 14px;
+    .light-theme & {
+        color: $black;
+    }
+}
+
+
+
+
+
+
+
+/* Google Map
+ * ------------- */
+
+.google-map {
+    height: 560px;
+    margin-top: 5em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Modal Popup
+ * ------------- */
+
+.modal .modal-dialog {
+    transform: translate(0, 0);
+}
+
+.modal-open .modal.show.modal-center {
+    display: flex!important;
+    align-items: center!important;
+    .modal-dialog {
+        flex-grow: 1;
+    }
+}
+
+.modal-dark {
+    .modal-content {
+        background-color: #141414;
+        color: $white;
+    }
+    .close {
+        color: #fff;
+        text-shadow: none;
+    }
+}
+
+.modal .close {
+    position: absolute;
+    right: 7px;
+    top: 7px;
+}
+
+.modal {
+
+    .modal-header {
+        border-bottom: 0;
+    }
+    .modal-title {
+        font-size: 50px;
+        font-weight: 700;
+        text-align: center; 
+    }
+}
+
+
+
+
+
+
+
+
+
+/* Video BG
+ * ------------- */
+
+.video-container {
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.video-container .filter {
+    z-index: 100;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+}
+
+.video-container video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background: url('../images/poster.jpg') no-repeat;
+    background-size: cover;
+    transition: 1s opacity;
+}
+
+
+
+
+
+
+
+
+
+/* Forms
+ * ------------- */
+
+.md-form {
+    position: relative;
+    margin-bottom: 2em;
+}
+
+.form-group {
+    button {
+        cursor: pointer;
+    }
+}
+
+.form-control,
+.form-control:focus {
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 0;
+    color: $white;
+    font-family: 'Dosis', Arial, Sans-serif;
+    .light-theme & {
+        color: $black;
+    }
+}
+
+.input-material {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #757575;
+}
+
+
+
+/* LABEL  */
+
+label {
+    color: #999;
+    font-size: 14px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+}
+
+
+
+/* active state */
+
+.input-material:focus~label,
+.input-material~label.active {
+    top: -20px;
+    font-size: 14px;
+    color: $white;
+    .light-theme & {
+        color: $black;
+    }
+}
+
+.bar {
+    position: relative;
+    display: block;
+}
+
+.bar:before,
+.bar:after {
+    content: '';
+    height: 1px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: $white;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+    .light-theme & {
+        background: $black;
+    }
+}
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+
+
+
+
+
+
+/* active state */
+
+.input-material:focus~.bar:before,
+.input-material:focus~.bar:after {
+    width: 50%;
+}
+
+
+
+
+
+
+
+
+/* active state */
+
+.input-material:focus~.highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+
+
+
+
+
+
+
+/* ANIMATIONS  */
+
+@keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes shake {
+    from,
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+.shake {
+    animation-name: shake;
+}
+
+
+
+
+
+
+
+/*-----------------------------------
+ * Animations
+ *-----------------------------------*/
+
+@keyframes lineanim {
+    50% {
+        transform: scaleY(1);
+        transform-origin: top left;
+    }
+    50.1% {
+        transform-origin: bottom left;
+    }
+    100% {
+        transform: scaleY(0);
+        transform-origin: bottom left;
+    }
+}
+
+@keyframes show-img-1 {
+    0%,
+    66.6% {
+        visibility: hidden
+    }
+
+    100%,
+    66.7% {
+        visibility: visible
+    }
+}
+
+@keyframes show-btn-1 {
+    0%,
+    50% {
+        visibility: hidden
+    }
+
+    100%,
+    50.1% {
+        visibility: visible
+    }
+}
+
+@keyframes slide-bg-2 {
+    33.3% {
+        transform-origin: left top;
+        transform: scale(.05, 1)
+    }
+
+    66.6% {
+        transform-origin: left center;
+        transform: scale(1, 1)
+    }
+
+    66.7% {
+        transform-origin: right center;
+        transform: scale(1, 1)
+    }
+
+    100% {
+        transform-origin: right center;
+        transform: scale(0, 1)
+    }
+}
+
+
+@keyframes slide-bg-1 {
+    50% {
+        transform-origin: left center;
+        transform: scaleX(1)
+    }
+
+    50.1% {
+        transform-origin: right center
+    }
+
+    100% {
+        transform-origin: right center;
+        transform: scaleX(0)
+    }
+}
+
+
+
+.animation {
+    position: relative;
+}
+
+[data-aos=slide-effect-2]:after {
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.785, .135, .15, .86);
+}
+
+[data-aos=slide-effect-2]>.animation-inner,
+[data-aos=slide-effect-2]>img {
+    visibility: hidden;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.785, .135, .15, .86);
+    position: relative;
+}
+
+[data-aos=slide-effect-2].aos-animate>.animation-inner,
+[data-aos=slide-effect-2].aos-animate>img {
+    animation-name: show-img-1;
+}
+
+[data-aos=slide-effect-2]:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: left top;
+    transform: scale(.05, 0);
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.785, .135, .15, .86);
+}
+
+[data-aos=slide-effect-2].anim-dark:after {
+    background-color: $black;
+}
+
+[data-aos=slide-effect-2].anim-light:after {
+    background-color: $white;
+}
+
+[data-aos=slide-effect-2].aos-animate:after {
+    animation-name: slide-bg-2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*Button*/
+
+[data-aos=slide-effect-btn] {
+    display: inline-block;
+    position: relative
+}
+
+[data-aos=slide-effect-btn] a {
+    visibility: hidden;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.785, .135, .15, .86)
+}
+
+[data-aos=slide-effect-btn]:after {
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.785, .135, .15, .86)
+}
+
+[data-aos=slide-effect-btn]:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: left center;
+    transform: scaleX(0);
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.785, .135, .15, .86)
+}
+
+[data-aos=slide-effect-btn].anim-dark:after {
+    background-color: $black;
+}
+
+[data-aos=slide-effect-btn].anim-light:after {
+    background-color: $white;
+}
+
+[data-aos=slide-effect-btn].aos-animate a {
+    animation-name: show-btn-1;
+    animation-delay: 3s;
+}
+
+[data-aos=slide-effect-btn].aos-animate:after {
+    animation-name: slide-bg-1;
+    animation-delay: 3s;
+}

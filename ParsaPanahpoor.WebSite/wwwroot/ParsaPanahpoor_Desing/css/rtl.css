@@ -1,0 +1,101 @@
+@font-face {
+  font-family: "Samim";
+  src: url("../fonts/Samim-FD.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/Samim-FD.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/Samim-FD.woff") format("woff"),
+    /* Pretty Modern Browsers */ url("../fonts/Samim-FD.woff2") format("woff2"),
+    /* Pretty Modern Browsers */ url("../fonts/Samim-FD.ttf") format("truetype");
+  /* Safari, Android, iOS */
+}
+body,
+a,
+span,
+h1,
+h2,
+h3,
+h6,
+h5,
+p,
+div,
+input::placeholder,
+label,
+button,
+li {
+  font-family: "Samim" !important;
+}
+
+.intro-subtitle {
+  direction: rtl;
+  text-align: center;
+}
+.box-shadow-full {
+  direction: rtl;
+  text-align: right;
+}
+p.lead,p {
+  text-align: justify;
+}
+.work-content {
+  direction: rtl;
+  /* text-align: right; */
+}
+.card-body {
+  text-align: center;
+}
+.card-footer {
+  direction: rtl;
+  text-align: left;
+}
+
+.list-ico {
+  padding-right: 0 !important;
+}
+.socials {
+  text-align: right;
+}
+.socials ul {
+  padding-right: 0 !important;
+}
+h2.w-title,.w-more{
+    text-align: right;
+}
+#blog{
+  direction: rtl;
+  text-align: right;
+}
+.sidebar-title{
+  
+  border-right:5px solid  blue; 
+  border-left:none !important; 
+  padding-right: 10px;
+}
+ul{
+  border-left: none !important;
+  padding-right: 0 !important;
+}
+.list-sidebar li a{
+ padding-right:15px;
+}
+.list-sidebar li::before{
+  right:0 !important;
+ }
+ .blockquote{
+   border-left: none !important;
+   border-right: 5px solid blue;
+ }
+ p.counter{
+   text-align:center;
+
+ }
+ .comment-details{
+   padding-right: 20px;
+ }
+@media (max-width:768px){
+  .navbar-nav{
+    text-align: right;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+}

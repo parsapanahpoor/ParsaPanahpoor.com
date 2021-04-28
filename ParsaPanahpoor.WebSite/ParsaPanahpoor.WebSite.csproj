@@ -1,0 +1,117 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\ParsaPanahpoor_Desing\.idea\misc.xml" />
+    <Content Include="wwwroot\ParsaPanahpoor_Desing\.idea\modules.xml" />
+    <Content Include="wwwroot\ParsaPanahpoor_Desing\.idea\workspace.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\ParsaPanahpoor_Desing\.idea\DevFolio.iml" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\contactform\contactform.js" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\contactform\Readme.txt" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\css\rtl.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\css\scss-files.txt" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\css\style-green.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\css\style-orange.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\css\style-purple.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\css\style-red.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\css\style-sky-blue.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\css\style.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\fonts\Samim-FD.eot" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\fonts\Samim-FD.ttf" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\fonts\Samim-FD.woff" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\fonts\Samim-FD.woff2" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\img\apple-touch-icon.png" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\img\counters-bg.jpg" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\img\favicon.png" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\img\intro-bg - Copy.jpg" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\img\intro-bg.jpg" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\img\overlay-bg.jpg" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\img\post-1.jpg" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\img\post-2.jpg" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\img\post-3.jpg" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\img\testimonial-2.jpg" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\img\testimonial-4.jpg" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\img\work-1.jpg" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\img\work-2.jpg" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\img\work-3.jpg" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\img\work-4.jpg" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\img\work-5.jpg" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\img\work-6.jpg" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\js\main.js" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\animate\animate.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\animate\animate.min.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\bootstrap\css\bootstrap.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\bootstrap\css\bootstrap.min.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\bootstrap\js\bootstrap.js" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\bootstrap\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\counterup\jquery.counterup.js" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\counterup\jquery.counterup.min.js" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\counterup\jquery.waypoints.min.js" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\easing\easing.js" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\easing\easing.min.js" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\font-awesome\css\font-awesome.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\font-awesome\css\font-awesome.min.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\font-awesome\fonts\fontawesome-webfont.eot" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\font-awesome\fonts\fontawesome-webfont.woff" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\font-awesome\fonts\FontAwesome.otf" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\ionicons\css\ionicons.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\ionicons\css\ionicons.min.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\ionicons\fonts\ionicons.eot" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\ionicons\fonts\ionicons.svg" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\ionicons\fonts\ionicons.ttf" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\ionicons\fonts\ionicons.woff" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\jquery\jquery-migrate.min.js" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\jquery\jquery.min.js" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\lightbox\css\lightbox.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\lightbox\css\lightbox.min.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\lightbox\images\close.png" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\lightbox\images\loading.gif" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\lightbox\images\next.png" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\lightbox\images\prev.png" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\lightbox\js\lightbox.js" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\lightbox\js\lightbox.min.js" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\lightbox\links.php" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\owlcarousel\assets\ajax-loader.gif" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\owlcarousel\assets\owl.carousel.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\owlcarousel\assets\owl.carousel.min.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\owlcarousel\assets\owl.theme.default.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\owlcarousel\assets\owl.theme.default.min.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\owlcarousel\assets\owl.theme.green.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\owlcarousel\assets\owl.theme.green.min.css" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\owlcarousel\assets\owl.video.play.png" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\owlcarousel\LICENSE" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\owlcarousel\owl.carousel.js" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\owlcarousel\owl.carousel.min.js" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\popper\popper.min.js" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\typed\typed.js" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\typed\typed.min.js" />
+    <None Include="wwwroot\ParsaPanahpoor_Desing\lib\typed\typed.min.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataContext\DataContext.csproj" />
+    <ProjectReference Include="..\Infra.IoC\Infra.IoC.csproj" />
+  </ItemGroup>
+
+</Project>
