@@ -23,6 +23,12 @@
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="UnitOfWork\" />
+    <Folder Include="Repository\" />
+  </ItemGroup>
   
   
 </Project>
