@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DataAccees.Services.Classes;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -27,8 +28,6 @@ namespace DataAccees.UnitOfWork
         #endregion
 
 
-
-
         #region Implement
 
         public void SaveChangesDB()
@@ -43,12 +42,31 @@ namespace DataAccees.UnitOfWork
 
         #endregion
 
+        #region Repositories
+        private UserRepository userRepository;
+
+        public UserRepository UserRepository
+        {
+            get
+            {
+                if (userRepository == null)
+                {
+                    userRepository = new UserRepository(db);
+                }
+
+                return userRepository;
+            }
+        }
 
 
+
+        #endregion
 
         #region Dispose
 
         private bool disposed = false;
+
+
         protected virtual void Dispose(bool disposing)
         {
             if (!this.disposed)

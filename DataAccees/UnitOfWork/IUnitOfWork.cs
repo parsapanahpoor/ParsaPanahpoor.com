@@ -11,7 +11,7 @@ namespace DataAccees.UnitOfWork
     {
         #region Repositories
 
-        UserRepository userRepository{ get; }
+        UserRepository UserRepository{ get; }
 
         #endregion
 

@@ -1,6 +1,6 @@
-﻿using DataAccees.Services.Interfaces;
+﻿using DataAccees.GenericRepository;
+using DataAccees.Services.Interfaces;
 using DataContext;
-using DataContext.Repository;
 using Microsoft.EntityFrameworkCore;
 using Models.Entities.User;
 using System;
