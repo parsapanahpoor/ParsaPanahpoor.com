@@ -9,7 +9,8 @@ namespace DataContext.Repository
 {
     public abstract class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEntity : class
     {
-        private readonly ParsaPanahpoorDBContext db;
+
+        private readonly DbContext db;
 
         #region Private Field dbSet
 
@@ -31,9 +32,9 @@ namespace DataContext.Repository
 
         #region Ctor
 
-        public Repository(ParsaPanahpoorDBContext db)
+        public Repository(DbContext dbContext)
         {
-            this.db = db;
+            this.db = dbContext;
 
         }
 
@@ -42,7 +43,7 @@ namespace DataContext.Repository
 
         #region Implement Of GenericRepository
 
-    public void Delete(object Id)
+        public void Delete(object Id)
         {
             var entity = GetById(Id);
 
