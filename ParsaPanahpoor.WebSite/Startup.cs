@@ -1,3 +1,4 @@
+using DataAccees.UnitOfWork;
 using DataContext;
 using Infra.IoC;
 using Microsoft.AspNetCore.Builder;
@@ -30,15 +31,17 @@ namespace ParsaPanahpoor.WebSite
             #region Context
 
 
-            services.AddDbContextPool<ParsaPanahpoorDBContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("ParsapanahpoorConnection"));
-            });
+            //services.AddDbContextPool<ParsaPanahpoorDBContext>(options =>
+            //{
+            //    options.UseSqlServer(Configuration.GetConnectionString("ParsapanahpoorConnection"));
+            //});
 
             #endregion
 
             #region Ioc
             RegisterServices(services);
+
+
             #endregion
 
 

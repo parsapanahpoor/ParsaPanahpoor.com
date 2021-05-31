@@ -11,9 +11,15 @@ namespace DataContext
     public  class ParsaPanahpoorDBContext : DbContext
     {
 
-        public ParsaPanahpoorDBContext(DbContextOptions<ParsaPanahpoorDBContext> options) 
-            : base(options)
+        //public ParsaPanahpoorDBContext(DbContextOptions<ParsaPanahpoorDBContext> options) 
+        //    : base(options)
+        //{
+
+        //}
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-8KN3PBT\\PARSA;Initial Catalog=ParsaPanahpoor_DB;Integrated Security=True;MultipleActiveResultSets=true");
 
         }
 

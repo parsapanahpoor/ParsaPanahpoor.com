@@ -1,5 +1,7 @@
 ﻿using DataAccees.Interfaces;
 using DataAccees.Services;
+using DataAccees.UnitOfWork;
+using DataContext;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -14,6 +16,8 @@ namespace Infra.IoC
         {
 
             service.AddTransient<IUserService, UserService>();
+
+            service.AddTransient<UnitOfWork<ParsaPanahpoorDBContext>>();
 
 
         }
