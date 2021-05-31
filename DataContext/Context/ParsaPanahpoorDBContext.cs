@@ -11,6 +11,8 @@ namespace DataContext
     public  class ParsaPanahpoorDBContext : DbContext
     {
 
+        #region NewConnectionString & Context
+
         //public ParsaPanahpoorDBContext(DbContextOptions<ParsaPanahpoorDBContext> options) 
         //    : base(options)
         //{
@@ -22,7 +24,10 @@ namespace DataContext
             optionsBuilder.UseSqlServer("Data Source=DESKTOP-8KN3PBT\\PARSA;Initial Catalog=ParsaPanahpoor_DB;Integrated Security=True;MultipleActiveResultSets=true");
 
         }
+        #endregion
 
+
+        #region Dbsets
 
         #region User
 
@@ -41,7 +46,7 @@ namespace DataContext
         #endregion
 
 
-
+        #endregion
 
 
         #region ModelBuilder & Fluent API

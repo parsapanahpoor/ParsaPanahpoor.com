@@ -41,7 +41,6 @@ namespace ParsaPanahpoor.WebSite
             #region Ioc
             RegisterServices(services);
 
-
             #endregion
 
 

@@ -1,5 +1,7 @@
 ﻿using DataAccees.Interfaces;
+using DataAccees.UnitOfWork;
 using DataAccees.ViewModels;
+using DataContext;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,11 +15,13 @@ namespace ParsaPanahpoor.WebSite.Controllers
     public class AccountController : Controller
     {
 
-        private IUserService _userService;
+        //private IUserService _userService;
+        private readonly UnitOfWork<ParsaPanahpoorDBContext> _context;
 
-        public AccountController(IUserService userService)
+        public AccountController(/*IUserService userService ,*/ UnitOfWork<ParsaPanahpoorDBContext> context)
         {
-            _userService = userService;
+            //_userService = userService;
+            _context = context;
         }
 
 
@@ -42,18 +46,18 @@ namespace ParsaPanahpoor.WebSite.Controllers
             }
 
 
-            if (_userService.IsExistUserName(register.UserName))
+            if (_context.UserRepository.IsExistUserName(register.UserName))
             {
                 ModelState.AddModelError("UserName", "نام کاربری معتبر نمی باشد");
                 return View(register);
             }
 
-            if (_userService.IsExistEmail(FixedText.FixEmail(register.Email)))
+            if (_context.UserRepository.IsExitEmail(FixedText.FixEmail(register.Email)))
             {
                 ModelState.AddModelError("Email", "ایمیل معتبر نمی باشد");
                 return View(register);
             }
-            if (_userService.IsExistPhoneNumber(FixedText.FixEmail(register.PhoneNumber)))
+            if (_context.UserRepository.IsExistPhonenumber(FixedText.FixEmail(register.PhoneNumber)))
             {
                 ModelState.AddModelError("PhoneNumber", "شماره ی وارد شده معتبر نمی باشد ");
                 return View(register);
@@ -62,8 +66,8 @@ namespace ParsaPanahpoor.WebSite.Controllers
 
 
 
-            _userService.AddUser(register);
-
+           int userid =  _context.UserRepository.AddUser(register);
+           _context.SaveChangesDB();
             //#region Send Activation Email
 
             //string body = _viewRender.RenderToStringAsync("_ActiveEmail", user);

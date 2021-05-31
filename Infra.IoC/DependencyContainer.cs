@@ -15,7 +15,7 @@ namespace Infra.IoC
         public static void RegisterServices(IServiceCollection service)
         {
 
-            service.AddTransient<IUserService, UserService>();
+            //service.AddTransient<IUserService, UserService>();
 
             service.AddTransient<UnitOfWork<ParsaPanahpoorDBContext>>();
 
