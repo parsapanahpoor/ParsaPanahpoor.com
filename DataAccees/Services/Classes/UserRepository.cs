@@ -55,5 +55,11 @@ namespace DataAccees.Services.Classes
         {
             return GetAll().Any(p => p.Email == Email);
         }
+
+        public User Login(LoginViewModel login)
+        {
+            string PhoneNumber = FixedText.FixEmail(login.phoneNumber);
+            return Get(p => p.PhoneNumber == PhoneNumber && p.Password == login.Password);
+        }
     }
 }

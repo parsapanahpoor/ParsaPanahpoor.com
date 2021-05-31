@@ -55,7 +55,7 @@
                             <a class="nav-link js-scroll" href="#">@User.Identity.Name</a>
                         </li>
                     }
-                    else
+                    @if (!User.Identity.IsAuthenticated)
                     {
                         <li class="nav-item">
                             <a class="nav-link js-scroll" href="/register">وارد شوید </a>

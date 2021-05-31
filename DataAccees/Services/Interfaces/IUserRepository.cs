@@ -16,6 +16,6 @@ namespace DataAccees.Services.Interfaces
         bool IsExitEmail(string Email);
         bool IsExistPhonenumber(string Phonenumber);
         int AddUser(RegisterViewModel register);
-
+        User Login(LoginViewModel login);
     }
 }

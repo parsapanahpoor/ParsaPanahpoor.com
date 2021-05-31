@@ -1,5 +1,5 @@
 ﻿@using DataAccees.ViewModels
-@model RegisterViewModel
+@model LoginViewModel
 
 @{
     Layout = null;
@@ -18,7 +18,7 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>ثبت نام | Registration</title>
+    <title>ورود | Login</title>
 
     <!-- Icons font CSS-->
     <link href="/RegisterPage/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -41,40 +41,26 @@
                 <div class="card-heading"></div>
                 <div class="card-body">
                     <h2 class="title">  Registration </h2>
-                    <form asp-controller="Account" asp-action="Register" asp-area="" method="post">
+                    <form asp-controller="Account" asp-action="Login" asp-area="" method="post">
                         <div style="color: darkred;" asp-validation-summary="ModelOnly"></div>
 
                         <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="UserName" asp-for="UserName">
-                            <span style="color: darkred;" asp-validation-for="UserName" class="text-danger"></span>
+                            <input class="input--style-3" type="text" placeholder="PhoneNmber" asp-for="phoneNumber">
+                            <span style="color: darkred;" asp-validation-for="phoneNumber" class="text-danger"></span>
 
                         </div>
 
-                        <div class="input-group">
-                            <input class="input--style-3" type="email" placeholder="Email" asp-for="Email">
-                            <span style="  color: darkred;" asp-validation-for="Email" class="text-danger"></span>
 
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="Phone" asp-for="PhoneNumber">
-                            <span style="  color: darkred;" asp-validation-for="PhoneNumber" class="text-danger"></span>
-
-                        </div>
                         <div class="input-group">
                             <input class="input--style-3" type="password" placeholder="Password" asp-for="Password">
                             <span style="  color: darkred;" asp-validation-for="Password" class="text-danger"></span>
 
                         </div>
-                        <div class="input-group">
-                            <input class="input--style-3" type="password" placeholder="Re-Password" asp-for="RePassword">
-                            <span style="  color: darkred;" asp-validation-for="RePassword" class="text-danger"></span>
-
-                        </div>
-
+                        <input type="hidden" asp-for="RememberMe" value="true" />
                         <div class="p-t-10">
-                            <button class="btn btn--pill btn--green" type="submit">Register</button>
+                            <button class="btn btn--pill btn--green" type="submit">login</button>
                         </div>
-                      
+                     
                     </form>
                 </div>
             </div>
