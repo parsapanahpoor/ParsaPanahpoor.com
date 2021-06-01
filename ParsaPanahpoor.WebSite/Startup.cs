@@ -88,9 +88,17 @@ namespace ParsaPanahpoor.WebSite
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                    name: "MyAreas",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+                endpoints.MapControllerRoute(
+
+                    name: "Default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                );
             });
+
         }
         public static void RegisterServices(IServiceCollection services)
         {
