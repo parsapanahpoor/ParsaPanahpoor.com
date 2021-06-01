@@ -21,6 +21,7 @@ namespace DataContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            //optionsBuilder.UseSqlServer("Data Source=.\\MSSQLSERVER2019;Initial Catalog=parsapnh_Context;User ID=parsapnh_Context;Password=S#ssu601;MultipleActiveResultSets=true");
             optionsBuilder.UseSqlServer("Data Source=DESKTOP-8KN3PBT\\PARSA;Initial Catalog=ParsaPanahpoor_DB;Integrated Security=True;MultipleActiveResultSets=true");
 
         }
