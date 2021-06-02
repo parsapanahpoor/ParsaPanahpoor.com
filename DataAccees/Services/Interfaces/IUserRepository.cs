@@ -17,5 +17,14 @@ namespace DataAccees.Services.Interfaces
         bool IsExistPhonenumber(string Phonenumber);
         int AddUser(RegisterViewModel register);
         User Login(LoginViewModel login);
+
+
+        #region AdminPanel
+
+        SideBarUserPanelViewModel GetSideBarUserPanelData(string username);
+
+
+        #endregion
+
     }
 }

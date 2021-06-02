@@ -40,6 +40,20 @@ namespace DataAccees.Services.Classes
             return user.UserId;
         }
 
+        public SideBarUserPanelViewModel GetSideBarUserPanelData(string username)
+        {
+            return GetAll().Where(p => p.UserName == username)
+                        .Select(p=>new SideBarUserPanelViewModel()
+                        {
+
+                            UserName = p.UserName,
+                            ImageName = p.UserAvatar
+
+
+
+                        }).Single();
+        }
+
         public bool IsExistPhonenumber(string Phonenumber)
         {
             return GetAll().Any(p => p.PhoneNumber == Phonenumber);
