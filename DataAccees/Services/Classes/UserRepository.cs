@@ -54,6 +54,11 @@ namespace DataAccees.Services.Classes
                         }).Single();
         }
 
+        public List<User> GetUsers()
+        {
+          return  GetAll().ToList();
+        }
+
         public bool IsExistPhonenumber(string Phonenumber)
         {
             return GetAll().Any(p => p.PhoneNumber == Phonenumber);

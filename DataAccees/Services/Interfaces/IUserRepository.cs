@@ -23,6 +23,8 @@ namespace DataAccees.Services.Interfaces
 
         SideBarUserPanelViewModel GetSideBarUserPanelData(string username);
 
+        List<User> GetUsers();
+
 
         #endregion
 
