@@ -1,4 +1,5 @@
 ﻿using DataAccees.Services.Classes;
+using DataAccees.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace DataAccees.UnitOfWork
 {
     public class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext : DbContext, new()
     {
-     
+
 
 
         #region Fileds
@@ -43,6 +44,8 @@ namespace DataAccees.UnitOfWork
         #endregion
 
         #region Repositories
+
+        #region UserRepository
         private UserRepository userRepository;
 
         public UserRepository UserRepository
@@ -57,8 +60,61 @@ namespace DataAccees.UnitOfWork
                 return userRepository;
             }
         }
+        #endregion
+
+        #region RoleRepository
+        private RoleRepository roleRepository;
+        public RoleRepository RoleRepository
+        {
+            get
+            {
+                if (roleRepository == null)
+                {
+                    roleRepository = new RoleRepository(db);
+                }
+
+                return roleRepository;
+            }
+        }
+
+        #endregion
+
+        #region PermissionRepository
+
+        private PermissionRepository permissionRepository;
+        public PermissionRepository PermissionRepository
+        {
+            get
+            {
+                if (permissionRepository == null)
+                {
+                    permissionRepository = new PermissionRepository(db);
+                }
+
+                return permissionRepository;
+            }
+        }
 
 
+        #endregion
+
+        #region
+     private UserRolesRepository userRolesRepository;
+        public UserRolesRepository UserRolesRepository
+        {
+            get
+            {
+                if (userRolesRepository == null)
+                {
+                    userRolesRepository = new UserRolesRepository(db);
+                }
+
+                return userRolesRepository;
+            }
+        }
+
+
+        #endregion
 
         #endregion
 

@@ -1,11 +1,14 @@
 ﻿using DataAccees.GenericRepository;
 using DataAccees.Services.Interfaces;
+using DataAccees.UnitOfWork;
 using DataAccees.ViewModels;
 using DataContext;
+using Etecsho.Utilities.Genarator;
 using Microsoft.EntityFrameworkCore;
 using Models.Entities.User;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Utilities.Convertors;
@@ -17,10 +20,19 @@ namespace DataAccees.Services.Classes
     {
 
         private readonly DbContext db;
+        private readonly UnitOfWork<ParsaPanahpoorDBContext> _context;
+
         public UserRepository(DbContext dbContext) : base(dbContext)
         {
-            this.db = (this.db ?? (ParsaPanahpoorDBContext)db);
         }
+
+        public UserRepository(UnitOfWork<ParsaPanahpoorDBContext> context, DbContext dbContext) : base(dbContext)
+        {
+            this.db = (this.db ?? (ParsaPanahpoorDBContext)db);
+            _context = context;
+        }
+
+        
 
         public int AddUser(RegisterViewModel register)
         {
@@ -38,6 +50,44 @@ namespace DataAccees.Services.Classes
 
             Insert(user);
             return user.UserId;
+        }
+
+        public User AddUserFromAdmin(CreateUserViewModel user)
+        {
+            User addUser = new User();
+            addUser.Password = user.Password;
+            addUser.PhoneNumber = user.PhoneNumber;
+            addUser.ActiveCode = Utilities.Genarator.RandomNumberGenerator.GetNumber();
+            addUser.Email = user.Email;
+            addUser.IsActive = true;
+            addUser.RegisterDate = DateTime.Now;
+            addUser.UserName = user.UserName;
+            addUser.IsDelete = false;
+
+
+
+            #region Save Avatar
+
+            if (user.UserAvatar != null)
+            {
+                string imagePath = "";
+                addUser.UserAvatar = NameGenerator.GenerateUniqCode() + Path.GetExtension(user.UserAvatar.FileName);
+                imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images/UserAvatar", addUser.UserAvatar);
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    user.UserAvatar.CopyTo(stream);
+                }
+            }
+            else
+            {
+                addUser.UserAvatar = "Defult.jpg";
+            }
+
+            #endregion
+
+
+
+            return addUser;
         }
 
         public SideBarUserPanelViewModel GetSideBarUserPanelData(string username)

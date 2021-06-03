@@ -21,9 +21,12 @@ namespace DataAccees.Services.Interfaces
 
         #region AdminPanel
 
+
+        User AddUserFromAdmin(CreateUserViewModel user);
         SideBarUserPanelViewModel GetSideBarUserPanelData(string username);
 
         List<User> GetUsers();
+
 
 
         #endregion

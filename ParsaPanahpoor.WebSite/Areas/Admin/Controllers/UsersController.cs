@@ -1,4 +1,5 @@
 ﻿using DataAccees.UnitOfWork;
+using DataAccees.ViewModels;
 using DataContext;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -34,6 +35,35 @@ namespace ParsaPanahpoor.WebSite.Areas.Admin.Controllers
 
             var user = _context.UserRepository.GetUsers();
             
+            return View(user);
+        }
+
+        public IActionResult Create()
+        {
+
+            ViewData["Roles"] = _context.RoleRepository.GetRoles();
+
+
+            return View();
+        
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(CreateUserViewModel user, List<int> SelectedRoles)
+        {
+            if (ModelState.IsValid)
+            {
+                var  customer = _context.UserRepository.AddUserFromAdmin(user);
+
+                _context.UserRepository.Insert(customer);
+                _context.SaveChangesDB();
+
+                _context.UserRolesRepository.AddRolesToUser(SelectedRoles , customer.UserId);
+                _context.SaveChangesDB();
+
+                return Redirect("/Admin/Users/Index?Create=true");
+            }
             return View(user);
         }
     }

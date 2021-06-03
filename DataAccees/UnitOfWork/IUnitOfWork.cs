@@ -12,6 +12,9 @@ namespace DataAccees.UnitOfWork
         #region Repositories
 
         UserRepository UserRepository{ get; }
+        RoleRepository   RoleRepository{ get; }
+        PermissionRepository PermissionRepository{ get; }
+        UserRolesRepository UserRolesRepository{ get; }
 
         #endregion
 
