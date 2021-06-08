@@ -136,5 +136,34 @@ namespace ParsaPanahpoor.WebSite.Areas.Admin.Controllers
             return View(user);
         }
 
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+
+            EditUserViewModel user = _context.UserRepository.GetUserForShowInEditMode((int)id);
+            ViewData["Roles"] = _context.RoleRepository.GetRoles();
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var user = _context.UserRepository.GetById(id);
+            _context.UserRepository.DeleteUser(id);
+            _context.SaveChangesDB();
+
+            return Redirect("/Admin/Users/Index?Delete=true");
+        }
     }
 }

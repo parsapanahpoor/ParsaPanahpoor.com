@@ -85,6 +85,13 @@ namespace DataAccees.Services.Classes
             return addUser;
         }
 
+        public void DeleteUser(int id)
+        {
+            User user = GetById(id);
+            user.IsDelete = true;
+            Update(user);
+        }
+
         public User EditUserFromAdmin(EditUserViewModel editUser)
         {
             User user = GetById(editUser.UserId);

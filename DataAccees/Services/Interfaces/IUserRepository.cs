@@ -26,9 +26,8 @@ namespace DataAccees.Services.Interfaces
         SideBarUserPanelViewModel GetSideBarUserPanelData(string username);
         EditUserViewModel GetUserForShowInEditMode(int id );
         List<User> GetUsers();
-
         User EditUserFromAdmin(EditUserViewModel editUser);
-
+        void DeleteUser(int id); 
         #endregion
 
     }
