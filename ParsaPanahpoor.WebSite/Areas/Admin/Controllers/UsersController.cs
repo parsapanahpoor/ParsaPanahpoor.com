@@ -118,5 +118,23 @@ namespace ParsaPanahpoor.WebSite.Areas.Admin.Controllers
 
             return View(user);
         }
+
+        public IActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            EditUserViewModel user = _context.UserRepository.GetUserForShowInEditMode((int)id);
+            ViewData["Roles"] = _context.RoleRepository.GetRoles();
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return View(user);
+        }
+
     }
 }
