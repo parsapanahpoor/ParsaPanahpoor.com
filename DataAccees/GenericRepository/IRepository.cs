@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
@@ -19,10 +20,21 @@ namespace DataAccees.GenericRepository
         void Delete(Expression<Func<TEntity, bool>> where);
 
         TEntity GetById(object Id);
-        IEnumerable<TEntity> GetAll();
-        TEntity Get(Expression<Func<TEntity, bool>> where);
+        IEnumerable<TEntity> GetAll(
+                  Expression<Func<TEntity, bool>> filter = null,
+                  Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+                  string includeProperties = null
+                  ); TEntity Get(Expression<Func<TEntity, bool>> where );
+
+
+
         IEnumerable<TEntity> GetMany(Expression<Func<TEntity, bool>> where);
 
+
+        TEntity GetFirstOrDefault(
+           Expression<Func<TEntity, bool>> filter = null,
+           string includeProperties = null
+           );
 
         #endregion
 

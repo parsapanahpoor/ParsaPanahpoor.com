@@ -75,10 +75,30 @@ namespace DataAccees.GenericRepository
             return dbSet.FirstOrDefault(where);
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, string includeProperties = null)
         {
-            return dbSet.AsEnumerable();
+            IQueryable<TEntity> query = dbSet;
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+            //include properties will be comma seperated
+            if (includeProperties != null)
+            {
+                foreach (var includeProperty in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProperty);
+                }
+            }
+
+            if (orderBy != null)
+            {
+                return orderBy(query).ToList();
+            }
+            return query.ToList();
         }
+
 
         public TEntity GetById(object Id)
         {
@@ -101,11 +121,31 @@ namespace DataAccees.GenericRepository
         }
 
 
+        public TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> filter = null, string includeProperties = null)
+        {
+            IQueryable<TEntity> query = dbSet;
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+            //include properties will be comma seperated
+            if (includeProperties != null)
+            {
+                foreach (var includeProperty in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProperty);
+                }
+            }
+
+            return query.FirstOrDefault();
+        }
+
 
 
         #endregion
 
-    
+
         #region Dispose
 
         private bool disposed = false;
@@ -126,6 +166,9 @@ namespace DataAccees.GenericRepository
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+
+
+
 
         #endregion
 

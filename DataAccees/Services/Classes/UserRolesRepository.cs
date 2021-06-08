@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Models.Entities.User;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DataAccees.Services.Classes
@@ -31,6 +32,15 @@ namespace DataAccees.Services.Classes
                 Insert(userRole);
             }
 
+        }
+
+        public void EditRolesUser(int userId, List<int> rolesId)
+        {
+            //Delete All Roles User
+            GetAll().Where(r => r.UserId == userId).ToList().ForEach(r => Delete(r));
+
+            //Add New Roles
+            AddRolesToUser(rolesId, userId);
         }
     }
 }

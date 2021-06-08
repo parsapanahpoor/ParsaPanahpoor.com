@@ -24,10 +24,10 @@ namespace DataAccees.Services.Interfaces
 
         User AddUserFromAdmin(CreateUserViewModel user);
         SideBarUserPanelViewModel GetSideBarUserPanelData(string username);
-
+        EditUserViewModel GetUserForShowInEditMode(int id );
         List<User> GetUsers();
 
-
+        User EditUserFromAdmin(EditUserViewModel editUser);
 
         #endregion
 

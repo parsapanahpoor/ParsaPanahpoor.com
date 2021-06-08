@@ -16,23 +16,18 @@ using Utilities.Genarator;
 
 namespace DataAccees.Services.Classes
 {
-   public class UserRepository : Repository<User>, IUserRepository
+    public class UserRepository : Repository<User>, IUserRepository
     {
 
         private readonly DbContext db;
-        private readonly UnitOfWork<ParsaPanahpoorDBContext> _context;
+
 
         public UserRepository(DbContext dbContext) : base(dbContext)
         {
-        }
-
-        public UserRepository(UnitOfWork<ParsaPanahpoorDBContext> context, DbContext dbContext) : base(dbContext)
-        {
             this.db = (this.db ?? (ParsaPanahpoorDBContext)db);
-            _context = context;
         }
 
-        
+
 
         public int AddUser(RegisterViewModel register)
         {
@@ -90,10 +85,43 @@ namespace DataAccees.Services.Classes
             return addUser;
         }
 
+        public User EditUserFromAdmin(EditUserViewModel editUser)
+        {
+            User user = GetById(editUser.UserId);
+            user.Email = editUser.Email;
+            user.PhoneNumber = editUser.PhoneNumber;
+            if (!string.IsNullOrEmpty(editUser.Password))
+            {
+                user.Password = editUser.Password;
+            }
+
+            if (editUser.UserAvatar != null)
+            {
+                //Delete old Image
+                if (editUser.AvatarName != "Defult.jpg")
+                {
+                    string deletePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images/UserAvatar", editUser.AvatarName);
+                    if (File.Exists(deletePath))
+                    {
+                        File.Delete(deletePath);
+                    }
+                }
+
+                //Save New Image
+                user.UserAvatar = NameGenerator.GenerateUniqCode() + Path.GetExtension(editUser.UserAvatar.FileName);
+                string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images/UserAvatar", user.UserAvatar);
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    editUser.UserAvatar.CopyTo(stream);
+                }
+            }
+            return user;
+        }
+
         public SideBarUserPanelViewModel GetSideBarUserPanelData(string username)
         {
             return GetAll().Where(p => p.UserName == username)
-                        .Select(p=>new SideBarUserPanelViewModel()
+                        .Select(p => new SideBarUserPanelViewModel()
                         {
 
                             UserName = p.UserName,
@@ -104,9 +132,28 @@ namespace DataAccees.Services.Classes
                         }).Single();
         }
 
+        public EditUserViewModel GetUserForShowInEditMode(int id)
+        {
+
+            var user = GetAll(includeProperties: "UserRoles").FirstOrDefault(p=>p.UserId == id);
+
+            EditUserViewModel customer = new EditUserViewModel()
+            {
+                UserId = user.UserId,
+                PhoneNumber = user.PhoneNumber,
+                AvatarName = user.UserAvatar,
+                Password = user.Password,
+                Email = user.Email,
+                UserName = user.UserName,
+                UserRoles = user.UserRoles.Select(r => r.RoleId).ToList()
+            };
+
+            return customer;
+        }
+
         public List<User> GetUsers()
         {
-          return  GetAll().ToList();
+            return GetAll().ToList();
         }
 
         public bool IsExistPhonenumber(string Phonenumber)
